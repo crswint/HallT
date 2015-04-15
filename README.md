@@ -1,1 +1,1 @@
-This project will hold web based maps displayed Hall Area Transit data in a pleasing format. 
+This project will hold web based maps displaying Hall Area Transit data in a pleasing format. 
