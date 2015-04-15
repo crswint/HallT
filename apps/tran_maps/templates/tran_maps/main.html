@@ -1,1 +1,46 @@
 {% extends 'base.html' %}
+
+{%  load staticfiles %}
+
+{% block title %}Hall Area Transit{% endblock %}
+
+{% block content %}
+
+
+		<div style="margin-top: 50px">
+        <center>
+            <div style="color:blue;display: inline;font-size: 200%;padding-right: 10px;">Hall</div>
+            <div style="color:red;display: inline;font-size: 200%;padding-right: 10px;">Area</div>
+            <div style="color:lightblue;display: inline;font-size: 200%;"> Transit</div>
+        </center>
+		</div>
+
+        <div>
+        <center>
+            <img src="/static/0605transit.jpg" style="margin-top: 100px"></img>
+        </center>
+        </div>
+        <center>
+        <ul class="list-unstyled">
+				<li>
+					Need to get somewhere but don't have a car?
+				</li>
+				<li>
+					Unable to drive for personal reasons?
+				</li>
+				<li>
+					Check out Hall Area Transits new website!
+				</li>
+				<li>
+					Click the drop down on the top right to select your route.
+				</li>
+				<li>
+					Lost? Click the "Find Me" button to find yourself on the web map.
+				</li>
+				<li>
+					For more information call 770-503-3333
+				</li>
+			</ul>
+        </center>
+
+{% endblock %}
