@@ -45,3 +45,16 @@ class StopCollection(generics.ListAPIView):
     queryset = models.Stop.objects.all()
     serializer_class = serializers.StopSerializer
     filter_class = StopFilter
+
+
+class RouteStopsCollection(generics.ListAPIView):
+    """
+    API endpoint that allows transportation stops to be viewed or edited.
+    """
+    queryset = models.Stop.objects.all()
+    serializer_class = serializers.StopSerializer
+    filter_class = StopFilter
+
+    def get_queryset(self):
+        route = models.Route.objects.filter(route_num=self.kwargs['route']).first()
+        return route.stops.all()
