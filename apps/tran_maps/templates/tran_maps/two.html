@@ -68,11 +68,30 @@
     L.mapbox.accessToken = 'pk.eyJ1IjoiY3Jzd2ludCIsImEiOiJnNktHVVJRIn0.JIC8FCyClaATfA5WR5-JyA';
     var map = L.mapbox.map('map', 'crswint.jljp9epk');
 
-{#    $.getJSON("{% url 'api:stops' %}", function (data) {#}
-{#        L.geoJson(data, {style: ouricon}).addTo(map);#}
-{#    });#}
+    $.getJSON("/api/v1/route/2/stops", function (data) {
+        L.geoJson(data, {style: ouricon,
+            onEachFeature: function(feature, layer){
 
-    $.getJSON("/api/v1/routes?id=4", function (data) {
+                (function(layer,properties) {
+
+                    layer.on("click", function (e) {
+                        console.log(properties)
+                        var popup = L.popup().setLatLng(e.latlng)
+
+                                .setContent(properties.name)
+
+                                .openOn(map);
+
+                    });
+
+                }) (layer, feature.properties);
+
+    }}).addTo(map);
+
+
+    });
+
+    $.getJSON("/api/v1/route?id=4", function (data) {
         L.geoJson(data, {style: ricon}).addTo(map);
     });
 
