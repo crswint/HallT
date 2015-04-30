@@ -99,6 +99,8 @@
         L.geoJson(data, {style: ricon}).addTo(map);
     });
 
+
+
     var myLayer = L.mapbox.featureLayer().addTo(map);
     if (!navigator.geolocation) {
     geolocate.innerHTML = 'Geolocation is not available';
